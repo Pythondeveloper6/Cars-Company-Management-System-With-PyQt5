@@ -1,0 +1,116 @@
+﻿USE [Cars_DB]
+GO
+/****** Object:  Table [dbo].[tbl_Un_Re_Maintainance]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Un_Re_Maintainance](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Form] [date] NULL,
+	[To] [date] NULL,
+	[Value] [float] NULL,
+	[Car_ID] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Un_Re_Licenses]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Un_Re_Licenses](
+	[License_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [nvarchar](50) NULL,
+	[float] [float] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Revnue]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Revnue](
+	[Revnue_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [nvarchar](50) NULL,
+	[Car_ID] [int] NULL,
+	[Value] [float] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Re_Maintainance]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Re_Maintainance](
+	[Maintain_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [nvarchar](100) NULL,
+	[Notes] [nvarchar](max) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Re_Licenses]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Re_Licenses](
+	[License_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [nvarchar](50) NULL,
+	[float] [float] NULL,
+	[Car_ID] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Fuel_Type]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Fuel_Type](
+	[Fuel_Type_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Fuel_Type_Name] [nvarchar](50) NULL,
+	[Price] [float] NULL,
+ CONSTRAINT [PK_tbl_Fuel_Type_1] PRIMARY KEY CLUSTERED 
+(
+	[Fuel_Type_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Fuel]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Fuel](
+	[Fuel_ID] [int] NOT NULL,
+	[Liter_Num] [float] NULL,
+	[Price] [float] NULL,
+	[Meter_Num] [int] NULL,
+	[Total] [float] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Car]    Script Date: 01/30/2017 19:17:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Car](
+	[Car_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Car_Num] [nvarchar](10) NOT NULL,
+	[Owner_Company] [nvarchar](50) NULL,
+	[Branch] [nvarchar](50) NULL,
+	[Service_Mode] [nvarchar](50) NULL,
+	[Shaceh_Number] [nvarchar](50) NULL,
+	[Motor_Number] [nvarchar](50) NULL,
+	[Fuel_Type] [nvarchar](50) NULL,
+	[Car_Type] [nvarchar](50) NULL,
+	[Car_Model] [nvarchar](50) NULL,
+	[Car_Load] [float] NULL,
+	[Car_Weight] [float] NULL,
+	[Shape] [nvarchar](50) NULL,
+	[Color] [nvarchar](50) NULL,
+	[Add_Date] [nvarchar](50) NULL,
+ CONSTRAINT [PK_tbl_Car] PRIMARY KEY CLUSTERED 
+(
+	[Car_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
